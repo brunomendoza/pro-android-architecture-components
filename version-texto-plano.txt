@@ -1,0 +1,33 @@
+Introducción
+Android Architecture Components es una colección de librerías que ayudan a diseñar aplicaciones robustas, sostenible y probables. Proporcionan orientación en la arquitectura de la aplicación con librerías para tareas comunes como la gestión del ciclo de vida y la persistencia de datos.
+Architecture Components recomendados
+Esta será una introducción a los Architecture Components y como funcionan juntos. Esta guía son LiveData, ViewModel y Room.
+
+Comenzando desde el la base el diagrama está compuesto por los siguientes elementos:
+    * Entity. Es un clase con anotaciones que describe las tablas de la base de datos.
+    * Base de datos SQLite. Es el RDBMS local que guardaraala base de datos. La librería de persistencia Room se encargará de gestionar este sistema gestor de bases de datos.
+    * DAO (Data Access Object). Son un conjunto de clases que utilizan un sistema de referencias entre funciones e consultas SQL. Evitan las plantillas utilizadas con la clase SQLiteOpenHelper.
+    * Base de datos Room. Capa de bases de datos encima de la base de datos SQL. Room sirve como punto de acceso a la base de datos subyacente a través de los DAO.
+    * Repositorio. Sirve para gestionar múltiples fuentes de datos.
+    * ViewModel. Proporciona datos a las vistas. En la clase enlace que comunica el repositorio con la GUI.
+    * LiveData. Es una clase sustentadora de datos que puede ser observada1. Notifica a sus observadores cuando cambian los datos que sostiene.
+
+Nuevo Proyecto Android
+--------------------------------------------------------------------------------
+
+Este proyecto utilizará el SDK 26+ y le daremos el nombre 'HelloWorldRoom'
+
+La forma más sencilla de comenzar con un proyecto de estas caracteristicas es utilizando el modelo 'Basic Activity'.
+
+Los artefactos necesarios son:
+
+// Room components
+implementation "android.arch.persistence.room:runtime:$rootProject.roomVersion"
+annotationProcessor "android.arch.persistence.room:compiler:$rootProject.roomVersion"
+androidTestImplementation "android.arch.persistence.room:testing:$rootProject.roomVersion"
+
+// Lifecycle components
+implementation "android.arch.lifecycle:extensions:$rootProject.archLifecycleVersion"
+annotationProcessor "android.arch.lifecycle:compiler:$rootProject.archLifecycleVersion"
+
+La configuración anterior se debe guardar el el archivo build.gradle (Module:App). La versión de los artefactos anteriores se controlará desde el archivo build.gradle (Project:HelloWorldRoom).
