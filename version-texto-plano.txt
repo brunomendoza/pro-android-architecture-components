@@ -19,6 +19,9 @@ Este proyecto utilizará el SDK 26+ y le daremos el nombre 'HelloWorldRoom'
 
 La forma más sencilla de comenzar con un proyecto de estas caracteristicas es utilizando el modelo 'Basic Activity'.
 
+Gradle Files
+--------------------------------------------------------------------------------
+
 Los artefactos necesarios son:
 
 // Room components
@@ -31,3 +34,8 @@ implementation "android.arch.lifecycle:extensions:$rootProject.archLifecycleVers
 annotationProcessor "android.arch.lifecycle:compiler:$rootProject.archLifecycleVersion"
 
 La configuración anterior se debe guardar el el archivo build.gradle (Module:App). La versión de los artefactos anteriores se controlará desde el archivo build.gradle (Project:HelloWorldRoom).
+
+Entities
+--------------------------------------------------------------------------------
+
+Las entidades son clases que representan una tabla en el modelo de datos. Es necesario un constructor y un método get
